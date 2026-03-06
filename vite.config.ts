@@ -10,7 +10,6 @@ export default defineConfig({
 		tanstackRouter({
 			target: "react",
 			autoCodeSplitting: true,
-			basepath: "/learning-card-frontend",
 		}),
 		react({
 			babel: {

@@ -10,7 +10,7 @@
     "format": "biome format . --write",
     "preview": "vite preview",
     "predeploy": "pnpm build",
-    "deploy": "gh-pages -d dist"
+    "deploy:gh": "gh-pages -d dist"
   },
   "dependencies": {
     "@better-upload/client": "^3.0.14",
