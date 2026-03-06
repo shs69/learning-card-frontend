@@ -9,8 +9,7 @@
     "lint": "biome check .",
     "format": "biome format . --write",
     "preview": "vite preview",
-    "predeploy": "pnpm build",
-    "deploy:gh": "gh-pages -d dist"
+    "deploy": "pnpm build && gh-pages -d dist"
   },
   "dependencies": {
     "@better-upload/client": "^3.0.14",
