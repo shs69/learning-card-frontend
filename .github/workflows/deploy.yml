@@ -19,6 +19,7 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           package_json: package.json
+          version: 10.30.2
 
       - name: Install dependencies
         run: pnpm install
