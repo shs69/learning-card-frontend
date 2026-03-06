@@ -1,5 +1,9 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { createRouter, RouterProvider } from "@tanstack/react-router";
+import {
+	createHashHistory,
+	createRouter,
+	RouterProvider,
+} from "@tanstack/react-router";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { ThemeProvider } from "./components/theme-provider";
@@ -7,7 +11,7 @@ import "./index.css";
 import { routeTree } from "./routeTree.gen";
 
 const queryClient = new QueryClient();
-const router = createRouter({ 
+const router = createRouter({
 	routeTree,
 	basepath: "/learning-card-frontend",
 });
