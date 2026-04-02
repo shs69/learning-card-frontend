@@ -4,6 +4,13 @@ import TextLoop from "@/components/text-loop";
 
 export const Route = createFileRoute("/_layout/")({
 	component: Home,
+	head: () => ({
+		meta: [
+			{
+				title: "Учебные карточки",
+			},
+		],
+	}),
 });
 
 function Home() {

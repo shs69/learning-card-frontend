@@ -9,12 +9,25 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "../ui/card";
 
-export function CardCarousel() {
+interface CardCarouselProps {
+	items: {
+		question: string;
+		answer: string;
+	}[];
+	keys: string[];
+}
+
+export function CardCarousel({ items, keys }: CardCarouselProps) {
 	const [api, setApi] = useState<CarouselApi>();
 	const [current, setCurrent] = useState(0);
 	const [count, setCount] = useState(0);
 
-	const array = new Array(10).fill(0).map((_, index) => index);
+	useEffect(() => {
+		if (keys.length > 0) {
+			setCount(keys.length);
+			setCurrent(1);
+		}
+	}, [keys.length]);
 
 	useEffect(() => {
 		if (!api) {
@@ -37,14 +50,16 @@ export function CardCarousel() {
 				className="w-full max-w-sm"
 			>
 				<CarouselContent>
-					{array.map((_, index) => (
-						<CarouselItem key={array[index]}>
+					{items.map((item) => (
+						<CarouselItem key={crypto.randomUUID()}>
 							<Card className="m-px">
-								<CardContent className="flex flex-col aspect-square items-center justify-center gap-10 p-6">
-									<span className="text-4xl font-semibold">
-										Вопрос №{index + 1}
+								<CardContent className="flex flex-col aspect-square items-center justify-center gap-4">
+									<span className="text-lg font-semibold w-full text-center">
+										{item.question}
 									</span>
-									<span className="text-3xl font-base">Ответ №{index + 1}</span>
+									<span className="text-base font-base w-full text-center">
+										{item.answer}
+									</span>
 								</CardContent>
 							</Card>
 						</CarouselItem>
